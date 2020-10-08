@@ -36,8 +36,8 @@ public class Technicien extends Employe implements Comparable<Technicien>{
     //#306
     @Override
     public Double getPrimeAnnuelle() {
-        Double primeBase = super.getPrimeAnnuelle();
-        return primeBase + (primeBase * grade * 0.1) + Entreprise.PRIME_ANCIENNETE * this.getNombreAnneeAnciennete();
+        Double primeAnnuelleBase = Entreprise.primeAnnuelleBase();
+        return primeAnnuelleBase + (primeAnnuelleBase * grade * 0.1) + Entreprise.PRIME_ANCIENNETE * this.getNombreAnneeAnciennete();
     }
 
     //#307

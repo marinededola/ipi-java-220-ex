@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * Created by pjvilloud on 21/09/17.
  */
-public class Employe {
+public abstract class Employe {
 
     //#101
     private String nom;
@@ -108,8 +108,6 @@ public class Employe {
     };
 
     //#110
-    public Double getPrimeAnnuelle(){
-        return Entreprise.primeAnnuelleBase();
-    }
+    public abstract Double getPrimeAnnuelle();
 }
 
