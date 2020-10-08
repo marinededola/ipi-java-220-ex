@@ -2,6 +2,8 @@ package com.ipiecoles.java.java220;
 
 import org.joda.time.LocalDate;
 
+import java.util.Objects;
+
 /**
  * Created by pjvilloud on 21/09/17.
  */
@@ -79,5 +81,35 @@ public class Employe {
     public String toString() {
         return "Employe{nom='"+ nom + "', prenom='" + prenom + "', matricule='" + matricule + "', dateEmbauche=" + dateEmbauche + ", salaire=" + salaire + "}";
     };
+
+    //#107
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employe employe = (Employe) o;
+        return Objects.equals(nom, employe.nom) &&
+                Objects.equals(prenom, employe.prenom) &&
+                Objects.equals(matricule, employe.matricule) &&
+                Objects.equals(dateEmbauche, employe.dateEmbauche) &&
+                Objects.equals(salaire, employe.salaire);
+    }
+
+    //#108
+    @Override
+    public int hashCode() {
+        return Objects.hash(nom, prenom, matricule, dateEmbauche, salaire);
+    }
+
+    //#109
+    public Double augmenterSalaire (Double pourcentage){
+        salaire = salaire + (salaire * pourcentage);
+        return salaire;
+    };
+
+    //#110
+    public Double getPrimeAnnuelle(){
+        return Entreprise.primeAnnuelleBase();
+    }
 }
 
